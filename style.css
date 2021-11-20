@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --dial-arm-width: 6px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -27,6 +31,31 @@ body {
   height: 50px;
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.5);
   opacity: 0;
+}
+
+.dial {
+  position: absolute;
+  top: 50px;
+}
+
+.dial-ring {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: calc(var(--dial-arm-width) / 2 - 50px);
+  border-radius: 50%;
+  border: 1px solid aqua;
+}
+
+.dial-arm {
+  position: absolute;
+  height: 50px;
+  width: var(--dial-arm-width);
+  transform-origin: calc(var(--dial-arm-width) / 2) 100%;
+  background: orange;
+  border: 1px solid aqua;
+  border-bottom-right-radius: calc(var(--dial-arm-width) / 2);
+  border-bottom-left-radius: calc(var(--dial-arm-width) / 2);
 }
 
 .fade-in {
