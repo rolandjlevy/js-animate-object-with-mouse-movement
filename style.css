@@ -22,7 +22,8 @@ body {
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 500px;
+  max-width: 280px;
+  padding-top: 100px;
 }
 
 .block {

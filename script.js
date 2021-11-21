@@ -3,14 +3,15 @@ const touchEnabled = () => 'ontouchstart' in window || navigator.maxTouchPoints 
 const getCssVar = (prop) => getComputedStyle(document.body).getPropertyValue(prop);
 
 const moveEvent = touchEnabled() ? 'ontouchmove' : 'onmousemove';
+const clickEvent = touchEnabled() ? 'ontouchstart' : 'onclick';
 
 const $ = (elem) => document.querySelector(elem);
 const $$ = (elem) => document.querySelectorAll(elem);
 
 let counter = 1;
 
-document.onclick = (event) => {
-  if (counter++ >= 100) return;
+document[clickEvent] = (event) => {
+  if (counter++ >= 25) return;
   const block = document.createElement('div');
   block.setAttribute('data-counter', counter);
   const classes = ['block', 'fade-in'];
@@ -22,7 +23,7 @@ document.onclick = (event) => {
 }
 
 document[moveEvent] = (event) => {
-  $('.dial-arm').style.transform = getTransform(event, 0).rotate;
+  $('.dial-arm').style.transform = getTransform(event).rotate;
   $$('.block').forEach((item) => {
     const rotate = getTransform(event, item.dataset.counter).rotate;
     const scale = getTransform(event).scale;
@@ -30,11 +31,11 @@ document[moveEvent] = (event) => {
   });
 }
 
-const getTransform = (event, index) => {
+const getTransform = (event, index = 0) => {
   const evt = touchEnabled() ? event.touches[0] : event;
   const ratioX = window.innerWidth / 360;
   const ratioY = window.innerWidth / 5;
-  const degrees = Math.ceil((evt.clientX) / ratioX) + Number(index) * 2;
+  const degrees = Math.ceil((evt.clientX) / ratioX) + Number(index) * 3;
   const size = 0.1 + evt.clientY / ratioY;
   return {
     rotate: `rotate(${degrees}deg)`,
