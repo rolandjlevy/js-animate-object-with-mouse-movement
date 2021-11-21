@@ -4,6 +4,8 @@
 
 :root {
   --dial-arm-width: 6px;
+  --primary-colour-1: orange;
+  --primary-colour-2: aqua;
 }
 
 body {
@@ -27,10 +29,10 @@ body {
 }
 
 .block {
-  background: linear-gradient(orange 10%, aqua);
+  background: linear-gradient(var(--primary-colour-1) 10%, var(--primary-colour-2));
   width: 50px;
   height: 50px;
-  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 25px 3px rgba(0, 0, 0, 0.5);
   opacity: 0;
 }
 
@@ -45,7 +47,7 @@ body {
   height: 100px;
   left: calc(var(--dial-arm-width) / 2 - 50px);
   border-radius: 50%;
-  border: 1px solid aqua;
+  border: 1px solid var(--primary-colour-2);
 }
 
 .dial-arm {
@@ -53,8 +55,8 @@ body {
   height: 50px;
   width: var(--dial-arm-width);
   transform-origin: calc(var(--dial-arm-width) / 2) 100%;
-  background: orange;
-  border: 1px solid aqua;
+  background: var(--primary-colour-1);
+  border: 1px solid var(--primary-colour-2);
   border-bottom-right-radius: calc(var(--dial-arm-width) / 2);
   border-bottom-left-radius: calc(var(--dial-arm-width) / 2);
 }
@@ -66,10 +68,6 @@ body {
 }
 
 @keyframes fadeInAnimation { 
-  0% { 
-    opacity: 0; 
-  } 
-  100% { 
-    opacity: 1; 
-  } 
+  0% { opacity: 0; } 
+  100% { opacity: 1; } 
 } 

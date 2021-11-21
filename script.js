@@ -1,17 +1,19 @@
 const touchEnabled = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 
-const getCssVar = (prop) => getComputedStyle(document.body).getPropertyValue(prop);
-
 const moveEvent = touchEnabled() ? 'ontouchmove' : 'onmousemove';
 const clickEvent = touchEnabled() ? 'ontouchstart' : 'onclick';
+
+const getCssVar = (prop) => getComputedStyle(document.body).getPropertyValue(prop);
+
 
 const $ = (elem) => document.querySelector(elem);
 const $$ = (elem) => document.querySelectorAll(elem);
 
 let counter = 1;
+const MAX_BLOCKS = 25;
 
 document[clickEvent] = (event) => {
-  if (counter++ >= 25) return;
+  if (counter++ >= MAX_BLOCKS) return;
   const block = document.createElement('div');
   block.setAttribute('data-counter', counter);
   const classes = ['block', 'fade-in'];
