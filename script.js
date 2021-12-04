@@ -37,7 +37,7 @@ const getTransform = (event, index = 0) => {
   const evt = touchEnabled() ? event.touches[0] : event;
   const ratioX = window.innerWidth / 360;
   const ratioY = window.innerWidth / 5;
-  const degrees = Math.ceil((evt.clientX) / ratioX) + Number(index) * 3;
+  const degrees = Math.ceil((evt.clientX) / ratioX) + Number(index) * 4;
   const size = 0.1 + evt.clientY / ratioY;
   return {
     rotate: `rotate(${degrees}deg)`,

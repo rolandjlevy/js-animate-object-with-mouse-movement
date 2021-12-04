@@ -39,6 +39,7 @@ body {
 .dial {
   position: absolute;
   top: 50px;
+  opacity: 0;
 }
 
 .dial-ring {
@@ -59,6 +60,13 @@ body {
   border: 1px solid var(--primary-colour-2);
   border-bottom-right-radius: calc(var(--dial-arm-width) / 2);
   border-bottom-left-radius: calc(var(--dial-arm-width) / 2);
+}
+
+.dial-display {
+  position: absolute;
+  bottom: 100%;
+  left: -100%;
+  color: #fff;
 }
 
 .fade-in {
